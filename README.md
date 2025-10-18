@@ -16,22 +16,29 @@ It accompanies the [AI vs Human Code Detection Dataset](https://huggingface.co/d
 
 ## 📂 Repository Contents
 
-| Folder / File       | Description                                                  |
-|----------------------|--------------------------------------------------------------|
-| `src/`               | All model training, preprocessing, and evaluation scripts    |
-| `plots/`             | Confusion matrices, metric curves, and comparison plots      |
-| `results/`           | Evaluation metrics saved as JSON/CSV                         |
-| `main.py`            | Complete training + evaluation pipeline                       |
-| `requirements.txt`   | Python dependencies                                          |
-| `README.md`          | This documentation                                          |
+| Folder / File         | Description                                                  |
+|------------------------|--------------------------------------------------------------|
+| `src/`                 | All model training, preprocessing, and evaluation scripts    |
+| `plots/`               | Confusion matrices, metric curves, and comparison plots      |
+| `results/`             | Evaluation metrics saved as JSON/CSV                         |
+| `main.py`              | Complete training + evaluation pipeline                      |
+| `requirements.txt`     | Python dependencies                                          |
+| `README.md`            | This documentation                                           |
 
 ---
 
-## 🧰 Dependencies
+## 🧰 Installation & Dependencies
 
-```bash
+bash
+# Clone the repository
+git clone https://github.com/your-username/ai-vs-human-code-detection.git
+cd ai-vs-human-code-detection
+
+# Install dependencies
 pip install -r requirements.txt
-Key libraries used:
+
+
+Key Libraries Used:
 
 scikit-learn
 
@@ -45,7 +52,9 @@ matplotlib / seaborn
 
 pandas / numpy
 
- Training & Evaluation
+
+
+## Training & Evaluation
 # Train all models (TF-IDF, XGBoost, CodeBERT)
 python main.py --evaluate_test
 
@@ -56,29 +65,77 @@ python src/evaluate_test_models.py
 All predictions and metrics are automatically stored in:
 
 experiments/
+
 plots/
+
 results/
 
 
-Load dataset:
+
+
+📦 Load Dataset & Model (Hugging Face)
+# Load dataset
 from datasets import load_dataset
-dataset = load_dataset("https://huggingface.co/datasets/mhb-maaz/ai-detector-dataset")
+dataset = load_dataset("mhb-maaz/ai-detector-dataset")
 
-
-Load model:
+# Load model
 from transformers import AutoModelForSequenceClassification
-model = AutoModelForSequenceClassification.from_pretrained("https://huggingface.co/mhb-maaz/Machine_generated_code_detection")
+model = AutoModelForSequenceClassification.from_pretrained("mhb-maaz/Machine_generated_code_detection")
 
-
-📊 Example Results (10k Balanced Test Set)
+📈 Example Results (10k Balanced Test Set)
 Model	Accuracy	F1 Macro	Precision	Recall
 TF-IDF	0.51	0.37	0.53	0.51
 XGBoost	0.94	0.94	0.95	0.94
 CodeBERT	0.99	0.99	0.99	0.99
 
-🖼 Confusion matrices and plots are saved in plots/.
+🖼 Confusion matrices and comparison plots are saved in plots/.
 
-📌 Contributors
+## 📊 Visualization
+
+Confusion matrices for each model
+
+Precision-Recall and ROC curves
+
+Model comparison charts
+
+Feature importance for XGBoost
+
+Training/Validation loss curves for CodeBERT
+
+All plots are saved in plots/ and can be directly used for reports and presentations.
+
+## 📁 Folder Structure
+ai-vs-human-code-detection/
+│
+├── src/                    # Model training and evaluation scripts
+├── results/                # Evaluation metrics and logs
+├── plots/                  # Plots and visualizations
+├── experiments/            # Saved models and predictions
+├── requirements.txt        # Dependencies
+├── main.py                 # Main pipeline
+└── README.md               # Project documentation
+
+## 🧪 Baseline Models
+
+TF-IDF + Logistic Regression — Simple lexical baseline
+
+XGBoost on AST Features — Structural code representation
+
+CodeBERT Fine-tuning — Transformer-based baseline
+
+These provide a strong baseline for benchmarking more advanced architectures.
+
+## 🧠 Future Work
+
+Add more languages (JavaScript, Java, Go)
+
+Incorporate stylistic features (e.g., comments, indentation)
+
+Integrate explainability methods
+
+Deploy as an interactive API or web app
+
+## 👥 Contributors
 
 Maaz Hussain
 
@@ -88,16 +145,16 @@ Hamza Iqbal
 
 Bilal Atif
 
-📜 License
+## 📜 License
 
 MIT License © 2025
 Authors: Maaz Hussain, Muhammad Abdul Daym, Hamza Iqbal, Bilal Atif
 
-📌 Acknowledgments
+## 🏫 Acknowledgments
 
 This project was developed as part of CS-272: Artificial Intelligence course at NUST.
 
-✉️ Maintainer: Maaz Hussain — Hugging Face
+✉️ Maintainer: Maaz Hussain
+🤗 Hugging Face: @mhb-maaz
 
 
----
