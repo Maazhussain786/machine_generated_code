@@ -1,0 +1,4 @@
+model,split,accuracy,f1_macro,precision_macro,recall_macro
+tfidf,test,0.227,0.188058472,0.611947791,0.502574003
+xgboost,test,0.9485,0.9485,0.95,0.95
+codebert,test,0.9931,0.9931,0.99,0.99
